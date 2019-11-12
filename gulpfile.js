@@ -25,20 +25,20 @@ function browserSyncReload(done) {
 
 // Clean vendor
 function clean() {
-  return del(["./shop_homepage/static/vendor/"]);
+  return del(["./shop_homepage/static/shop_homepage/vendor/"]);
 }
 
 // Bring third party dependencies from node_modules into vendor directory
 function modules() {
   // Bootstrap
   var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*')
-    .pipe(gulp.dest('./shop_homepage/static/vendor/bootstrap'));
+    .pipe(gulp.dest('./shop_homepage/static/shop_homepage/vendor/bootstrap'));
   // jQuery
   var jquery = gulp.src([
       './node_modules/jquery/dist/*',
       '!./node_modules/jquery/dist/core.js'
     ])
-    .pipe(gulp.dest('./shop_homepage/static/vendor/jquery'));
+    .pipe(gulp.dest('./shop_homepage/static/shop_homepage/vendor/jquery'));
   return merge(bootstrap, jquery);
 }
 
